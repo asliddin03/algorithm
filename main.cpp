@@ -1,6 +1,6 @@
 #include <iostream>
 
-class Queue{
+class Queue {
  public:
   Queue(int sz) {
     size = sz;
@@ -17,7 +17,7 @@ class Queue{
   int size;
   int front;
   int rear;
-  int* arr;
+  int *arr;
 };
 
 void Queue::Push(int elem) {
@@ -51,16 +51,21 @@ void Queue::Print() {
 }
 
 int main() {
-  Queue q(10);
-  for (int i = 0; i < 10; ++i) {
-    int x;
-    int y;
-    std::cin >> x >> y;
-    if (x == 1) {
-      q.Push(y);
-    } else if (x == 2) {
+  int sz;
+  std::cin >> sz;
+  Queue q(sz);
+  int n;
+  std::cin >> n;
+  std::string s;
+  int x;
+  for (int i = 0; i < n; ++i) {
+    std::cin >> s;
+    if (s == "push") {
+      std::cin >> x;
+      q.Push(x);
+    } else if (s == "pop") {
       q.Pop();
-    } else {
+    } else if (s == "print") {
       q.Print();
     }
   }
